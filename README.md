@@ -13,16 +13,16 @@ The interesting part is not the mailbox. It is the two checks between an invoice
 ```mermaid
 graph TD
     Agent[Autonomous AI Agent] -->|1. Request inbox| MermailSDK[Mermail Skill Engine]
-    MermailSDK -->|2. Provision identity| Inbox[" agent_id@mermail.app\]
+    MermailSDK -->|2. Provision identity| Inbox[agent_id_at_mermail_app]
 
-    TargetService[External SaaS / Platform] -->|3. Verification email / invoice| Inbox
+    TargetService[External SaaS Platform] -->|3. Verification email or invoice| Inbox
     Inbox -->|4. Webhook or polling| MermailSDK
 
-    MermailSDK -->|5. Extract OTP / parse invoice| Parser[Email and token parser]
+    MermailSDK -->|5. Extract OTP or parse invoice| Parser[Email and token parser]
     Parser -->|6. Verified action| Agent
 
     Agent -->|7. Authorize micro-payment| Wallet[Agent embedded wallet]
-    Wallet -->|8. Settle in USDC / SOL| TargetService
+    Wallet -->|8. Settle in USDC or SOL| TargetService
 ```
 
 **Use case 1, automated account registration.** Create an inbox, submit a signup, wait for the verification mail, extract the OTP or magic link, confirm, settle the invoice, collect the credentials.
