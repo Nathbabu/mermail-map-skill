@@ -13,7 +13,7 @@ The interesting part is not the mailbox. It is the two checks between an invoice
 ```mermaid
 graph TD
     Agent[Autonomous AI Agent] -->|1. Request inbox| MermailSDK[Mermail Skill Engine]
-    MermailSDK -->|2. Provision identity| Inbox[agent_id@mermail.app]
+    MermailSDK -->|2. Provision identity| Inbox[" agent_id@mermail.app\]
 
     TargetService[External SaaS / Platform] -->|3. Verification email / invoice| Inbox
     Inbox -->|4. Webhook or polling| MermailSDK
