@@ -469,7 +469,7 @@ export async function main(argv: readonly string[] = process.argv.slice(2)): Pro
   }
 }
 
-const invokedDirectly = process.argv[1] !== undefined && import.meta.url === `file://${process.argv[1]}`;
+const invokedDirectly = process.argv[1] !== undefined && import.meta.url.endsWith(process.argv[1].replace(/\\/g, '/'));
 if (invokedDirectly) {
   main().then(
     (code) => {
